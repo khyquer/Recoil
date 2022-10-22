@@ -1,7 +1,6 @@
 import React from 'react'
 import { useRecoilValue } from 'recoil'
 import { IEvento } from '../../interfaces/IEvento'
-import { filtroDeEventos, listaDeEventosState } from '../../state/atom'
 import { eventosFiltradosState } from '../../state/seletores'
 import Evento from '../Evento'
 import Filtro from '../Filtro'

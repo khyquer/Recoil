@@ -13,13 +13,18 @@ export const eventosFiltradosState = selector({
 			if (!filtro.data) {
 				return true
 			}
-			console.log(filtro)
 			
 			const ehOMesmoDia =
 				filtro.data.toISOString().slice(0, 10) ===
 				evento.inicio.toISOString().slice(0, 10)
 
-			return ehOMesmoDia
+			const ehNoMesmoStatus = filtro.status === 'completos' && evento.completo === true || filtro.status === 'incompletos' && evento.completo === false || filtro.status === 'ambos'
+			console.log('ehOMesmoDia', ehOMesmoDia)
+			console.log('status1', filtro.status === 'completos' && evento.completo === true)
+			console.log('status2', filtro.status === 'incompletos' && evento.completo === false)
+			console.log('status3', filtro.status === 'ambos')
+			console.log('status4', ehNoMesmoStatus)
+			return ehOMesmoDia && ehNoMesmoStatus
 		})
 
 		return eventos

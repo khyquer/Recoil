@@ -6,7 +6,8 @@ module.exports = {
 	'extends': [
 		'eslint:recommended',
 		'plugin:react/recommended',
-		'plugin:@typescript-eslint/recommended'
+		'plugin:@typescript-eslint/recommended',
+		'plugin:react/jsx-runtime'
 	],
 	'overrides': [
 	],
@@ -17,9 +18,11 @@ module.exports = {
 	},
 	'plugins': [
 		'react',
-		'@typescript-eslint'
+		'@typescript-eslint',		
+		'plugin:react/jsx-runtime'
 	],
 	'rules': {
+		'react/react-in-jsx-scope': 'off',
 		'indent': [
 			'error',
 			'tab'

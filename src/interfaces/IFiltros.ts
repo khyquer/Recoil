@@ -1,3 +1,4 @@
 export interface IFiltros {
-	data?: Date | null
+	data?: Date | null,
+	status?: string
 }

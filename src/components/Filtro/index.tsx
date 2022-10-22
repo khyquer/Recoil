@@ -6,17 +6,20 @@ import style from './Filtro.module.scss'
 
 const Filtro: React.FC = () => {
 	const [data, setData] = useState('')
+	const [status, setStatus] = useState('')
 
 	const setFiltroDeEvento = useSetRecoilState<IFiltros>(filtroDeEventos)
 
 	const submeterForm = (evento: React.FormEvent<HTMLFormElement>) => {
 		evento.preventDefault()
+		console.log(status)
 		if (!data) {
-			return setFiltroDeEvento({data: null})
+			return setFiltroDeEvento({ data: null, status: status })
 		}
-		
+
 		setFiltroDeEvento({
-			data: new Date(data)
+			data: new Date(data),
+			status: status,
 		})
 	}
 
@@ -32,9 +35,34 @@ const Filtro: React.FC = () => {
 				value={data}
 			/>
 
+			<fieldset>
+				<input
+					type='radio'
+					name='status[]'
+					onChange={(evento) => evento.target.checked ? setStatus(evento.target.value) : setStatus('')}
+					placeholder='Por data'
+					value='completos'
+				/> Completos
+				<input
+					type='radio'
+					name='status[]'
+					onChange={(evento) => evento.target.checked ? setStatus(evento.target.value) : setStatus('')}
+					placeholder='Por data'
+					value='incompletos'
+				/> Incompletos
+				<input
+					type='radio'
+					name='status[]'
+					onChange={(evento) => evento.target.checked ? setStatus(evento.target.value) : setStatus('')}
+					placeholder='Por data'
+					value='ambos'
+				/> Ambos
+			</fieldset>
+
 			<button className={style.botao}>Filtrar</button>
 		</form>
 	)
 }
 
 export default Filtro
+
