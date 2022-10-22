@@ -1,3 +1,3 @@
 export interface IFiltros {
-	data?: Date
+	data?: Date | null
 }
