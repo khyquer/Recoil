@@ -12,14 +12,6 @@ function App() {
 
 	const [filtro, setFiltro] = useState<Date | null>()
 
-	const adicionarEvento = (evento: IEvento) => {
-		evento.id = Math.round(new Date().getTime() / 1000)
-		eventos.push(evento)
-		console.log(eventos)
-
-		setEventos([...eventos])
-	}
-
 	const aplicarFiltro = (data: Date | null) => {
 		setFiltro(data)
 	}
