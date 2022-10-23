@@ -1,0 +1,32 @@
+{
+	"eventos": [
+		{
+			"descricao": "Estudar React",
+			"inicio": "2022-10-15T09:00",
+			"fim": "2022-10-15T13:00",
+			"completo": false,
+			"id": 1642342747
+		},
+		{
+			"descricao": "Estudar Recoil",
+			"inicio": "2022-10-16T09:00",
+			"fim": "2022-10-22T11:00",
+			"completo": false,
+			"id": 1642342959
+		},
+		{
+			"descricao": "Estudar Recoil 2",
+			"inicio": "2022-10-21T09:00",
+			"fim": "2022-10-21T11:00",
+			"completo": true,
+			"id": 1642342958
+		},
+		{
+			"descricao": "Estudar Recoil 2",
+			"inicio": "2022-10-21T09:00",
+			"fim": "2022-10-21T11:00",
+			"completo": true,
+			"id": 1642342858
+		}
+	]
+}

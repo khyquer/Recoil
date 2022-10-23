@@ -19,14 +19,24 @@ export const eventosFiltradosState = selector({
 				evento.inicio.toISOString().slice(0, 10)
 
 			const ehNoMesmoStatus = filtro.status === 'completos' && evento.completo === true || filtro.status === 'incompletos' && evento.completo === false || filtro.status === 'ambos'
-			console.log('ehOMesmoDia', ehOMesmoDia)
-			console.log('status1', filtro.status === 'completos' && evento.completo === true)
-			console.log('status2', filtro.status === 'incompletos' && evento.completo === false)
-			console.log('status3', filtro.status === 'ambos')
-			console.log('status4', ehNoMesmoStatus)
 			return ehOMesmoDia && ehNoMesmoStatus
 		})
 
 		return eventos
 	},
+})
+
+export const eventosAsync = selector({
+	'key': 'eventosAsync',
+	get: async () => {
+		const respostaHttp = await fetch('http://localhost:8080/eventos')
+
+		const eventosJson: IEvento[] = await respostaHttp.json()
+
+		return eventosJson.map(evento => ({
+			...evento,
+			inicio: new Date(evento.inicio),
+			fim: new Date(evento.fim)
+		}))
+	}
 })
